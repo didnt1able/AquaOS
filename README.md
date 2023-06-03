@@ -1,4 +1,4 @@
-# Starting point
+# AquaOS
 
 [![build-ublue](https://github.com/ublue-os/startingpoint/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/startingpoint/actions/workflows/build.yml)
 
@@ -126,6 +126,7 @@ After doing that, you'll be able to run the following commands:
 - `just setup-gaming` - Install Steam, Heroic Game Launcher, OBS Studio, Discord, Boatswain, Bottles, and ProtonUp-Qt. MangoHud is installed and enabled by default, hit right Shift-F12 to toggle
 - `just nix-me-up` - Install Nix with dnkmmr69420's Nix Silverblue install script
 - `just update` - Update rpm-ostree, flatpaks, and distroboxes in one command
+- `just setup-cockpit` - Installs cockpit/ws for access on localhost:9090
 
 Check the [just website](https://just.systems) for tips on modifying and adding your own recipes.
 
@@ -133,6 +134,6 @@ Check the [just website](https://just.systems) for tips on modifying and adding 
 
 These images are signed with sisgstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the following command:
 
-    cosign verify --key cosign.pub ghcr.io/ublue-os/startingpoint
+    cosign verify --key cosign.pub ghcr.io/didnt1able/aqua-os
 
 If you're forking this repo, the uBlue website has [instructions](https://ublue.it/making-your-own/) for setting up signing properly.
