@@ -32,9 +32,12 @@ nix-me-up:
   /usr/bin/ublue-nix-install
 
 setup-cockpit:
-  podman container runlabel --name cockpit-ws RUN quay.io/cockpit/ws
+  #!/usr/bin/env bash
+  echo 'PasswordAuthentication yes' | sudo tee /etc/ssh/sshd_config.d/02-enable-passwords.conf
+  sudo systemctl restart sshd
+  sudo podman container runlabel --name cockpit-ws RUN quay.io/cockpit/ws
   sudo podman container runlabel INSTALL quay.io/cockpit/ws
   systemctl enable cockpit.service
-
-
+  
+  done
 
