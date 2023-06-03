@@ -39,5 +39,5 @@ setup-cockpit:
   sudo podman container runlabel INSTALL quay.io/cockpit/ws
   systemctl enable cockpit.service
   
-  done
+  
 
