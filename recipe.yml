@@ -59,6 +59,9 @@ rpm:
     - cockpit
     - cockpit-podman
     - cockpit-ostree
+    - cockpit-system
+    - cockpit-networkmanager
+    - cockpit-kdump
     # GNOME's GTK4 theme, Libadwaita. Already included in Silverblue, but not
     # other spins. You can remove if you aren't using yafti, but many native
     # apps and binaries require it, so it's a good idea to always include it
