@@ -30,3 +30,11 @@ setup-gaming:
 nix-me-up:
   echo 'Setting phasers to kill. Installing nix.'
   /usr/bin/ublue-nix-install
+
+setup-cockpit:
+  
+echo 'PasswordAuthentication yes' | sudo tee /etc/ssh/sshd_config.d/02-enable-passwords.conf &&
+sudo service sshd restart &&
+podman container runlabel --name cockpit-ws RUN quay.io/cockpit/ws &&
+podman container runlabel INSTALL quay.io/cockpit/ws &&
+sudo systemctl enable cockpit.service &&
