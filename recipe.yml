@@ -56,7 +56,6 @@ rpm:
   install:
     # Needed for yafti (the first boot installer). Remove if you're not using yafti.
     - python3-pip
-    - cockpit
     - cockpit-podman
     - cockpit-ostree
     - cockpit-system
