@@ -34,6 +34,11 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 # Copy the build script and all custom scripts.
 COPY scripts /tmp/scripts
 
+# Add additional repos
+RUN wget https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-"${FEDORA_MAJOR_VERSION}"/ganto-lxc4-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/ganto-lxc4-fedora-"${FEDORA_MAJOR_VERSION}".repo
+RUN wget https://terra.fyralabs.com/terra.repo -O /etc/yum.repos.d/terra.repo
+
+
 # Additional packages
 RUN rpm-ostree install fail2ban && systemctl enable fail2ban
 RUN rpm-ostree install code
