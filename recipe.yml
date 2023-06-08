@@ -97,3 +97,4 @@ firstboot:
     - com.brave.Browser
     - org.deluge_torrent.deluge
     - org.videolan.VLC
+    - org.freedesktop.Platform.ffmpeg-full
