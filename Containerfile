@@ -49,9 +49,6 @@ RUN rpm-ostree install cockpit-bridge cockpit-system cockpit-networkmanager cock
 RUN rpm-ostree install cargo nodejs-npm p7zip p7zip-plugins powertop rust
 # Run the build script, then clean up temp files and finalize container build.
 RUN systemctl enable rpm-ostreed-automatic.timer && \
-    rm -rf \
-        /tmp/* \
-        /var/* && \
         mkdir -p /var/lib/duperemove && \
         chmod +x /tmp/scripts/build.sh && \
         /tmp/scripts/build.sh && \
