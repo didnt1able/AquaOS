@@ -11,7 +11,9 @@ base-image: ghcr.io/ublue-os/silverblue-nvidia
 # If you use `latest`, you will be automatically updated to the next major
 # Fedora version, assuming the image you're using as your base container
 # builds with the tag (all uBlue images do this).
-fedora-version: latest
+
+#change back to latest when upstream fixes come
+fedora-version: 20230531
 
 # This description will be visible in the container metadata.
 description: Silverblue-nvidia with cockpit
