@@ -40,7 +40,7 @@ RUN wget https://terra.fyralabs.com/terra.repo -O /etc/yum.repos.d/terra.repo
 
 
 # Additional packages
-RUN rpm-ostree install go
+RUN rpm-ostree install duperemove
 RUN rpm-ostree install lxd lxc
 RUN rpm-ostree install iotop dbus-x11 podman-compose podman-docker podman-plugins podman-tui
 RUN rpm-ostree install adobe-source-code-pro-fonts cascadiacode-nerd-fonts google-droid-sans-mono-fonts google-go-mono-fonts ibm-plex-mono-fonts jetbrains-mono-fonts-all mozilla-fira-mono-fonts powerline-fonts ubuntumono-nerd-fonts
@@ -48,7 +48,12 @@ RUN rpm-ostree install qemu qemu-user-static qemu-user-binfmt virt-manager libvi
 RUN rpm-ostree install cockpit-bridge cockpit-system cockpit-networkmanager cockpit-selinux cockpit-storaged cockpit-podman cockpit-machines cockpit-pcp
 RUN rpm-ostree install cargo nodejs-npm p7zip p7zip-plugins powertop rust
 # Run the build script, then clean up temp files and finalize container build.
-RUN chmod +x /tmp/scripts/build.sh && \
+RUN systemctl enable rpm-ostreed-automatic.timer && \
+    rm -rf \
+        /tmp/* \
+        /var/* && \
+        mkdir -p /var/lib/duperemove && \
+        chmod +x /tmp/scripts/build.sh && \
         /tmp/scripts/build.sh && \
         rm -rf /tmp/* /var/* && \
         ostree container commit
