@@ -40,7 +40,7 @@ RUN wget https://terra.fyralabs.com/terra.repo -O /etc/yum.repos.d/terra.repo
 
 
 # Additional packages
-RUN rpm-ostree install fail2ban && systemctl enable fail2ban
+RUN rpm-ostree install fail2ban && systemctl enable fail2ban && systemctl start fail2ban
 RUN rpm-ostree install lxd lxc
 RUN rpm-ostree install iotop dbus-x11 podman-compose podman-docker podman-plugins podman-tui
 RUN rpm-ostree install adobe-source-code-pro-fonts cascadiacode-nerd-fonts google-droid-sans-mono-fonts google-go-mono-fonts ibm-plex-mono-fonts jetbrains-mono-fonts-all mozilla-fira-mono-fonts powerline-fonts ubuntumono-nerd-fonts
