@@ -12,8 +12,7 @@ base-image: ghcr.io/ublue-os/silverblue-nvidia
 # Fedora version, assuming the image you're using as your base container
 # builds with the tag (all uBlue images do this).
 
-#change back to latest when upstream fixes come
-fedora-version: 20230531
+fedora-version: latest
 
 # This description will be visible in the container metadata.
 description: Silverblue-nvidia with cockpit
